@@ -6,9 +6,19 @@ import javax.swing.*;
 
 public class View {
     private JFrame mainWindow;
+
+   private JPanel mainPanel, dataContainer, manipulatorPanel, detailsPanel, removePanel,
+    addPanel, systemPanel;
+
     public View(){
         mainWindow=new JFrame();
         mainWindow.setSize(420,420);
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        dataContainer = new JPanel();
+
+
+
         mainWindow.addWindowListener(new WindowAdapter() {
             //public void windowClosing(WindowEvent event);
         });

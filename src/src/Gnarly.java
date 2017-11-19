@@ -13,6 +13,11 @@ public class Gnarly{
 
     public static long yourmilliseconds;
 
+    public static String currentTime()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        return null;
+    }
 
     public static void main(String [] args){
 
@@ -31,11 +36,10 @@ public class Gnarly{
             }
         });
 
-        yourmilliseconds = System.currentTimeMillis();
-        System.out.println(System.currentTimeMillis());
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(yourmilliseconds);
-        System.out.println(resultdate);
+
+
+
+
 
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);

@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 public class addPanel extends JPanel{
 
-    private JTextField nameText, volumeText, priceText, expiryText;
+    public JTextField nameText, volumeText, priceText, expiryText;
 
 
     public addPanel() {

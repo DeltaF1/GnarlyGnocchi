@@ -14,7 +14,12 @@ public class AddControler implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getActionCommand().equals("Add Item")){
 
+            addPanel panel = (addPanel) actionEvent.getSource();
 
+            Record r = DatabaseManager.addRecord(panel.nameText.getText(), Float.parseFloat(panel.volumeText.getText()),
+                    Integer.parseInt(panel.priceText.getText()), panel.expiryText.getText());
+
+            View.dataContainerPanel.getData();
 
         }
     }

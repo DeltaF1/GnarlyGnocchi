@@ -27,4 +27,9 @@ public class Record {
     {
         DatabaseManager.remove(id);
     }
+
+    public String toString()
+    {
+        return name;
+    }
 }

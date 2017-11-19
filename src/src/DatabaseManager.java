@@ -34,7 +34,8 @@ public class DatabaseManager {
     {
         try
         {
-            return new Record(rs.getInt("id"), rs.getString("name"), rs.getFloat("volume"), rs.getInt("price"), rs.getString("expiry"));
+            return new Record(rs.getInt("id"), rs.getString("name"), rs.getFloat("volume"),
+                    rs.getInt("price"), rs.getString("expiry"));
         }
         catch (SQLException e)
         {
@@ -64,8 +65,6 @@ public class DatabaseManager {
 
     public static void removeExpired()
     {
-        //Need to get current date in proper format
-
         try
         {
             stmt.execute("DELETE FROM items WHERE expiry = date('now')");
@@ -103,7 +102,7 @@ public class DatabaseManager {
 
     public static Record addRecord(String name, float volume, int price, String date) {
         String sql = "INSERT INTO items (name, volume, price, expiry) VALUES ('" +
-        name+"',"+volume+","+price+",date("+date+")"+
+        name+"',"+volume+","+price+",date('"+date+"')"+
         ")";
         try {
             stmt.execute(sql);

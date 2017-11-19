@@ -26,7 +26,7 @@ public class Gnarly{
 
         //Testing for Model
         Record r = DatabaseManager.addRecord("Food pellets", 500.0f, 10025, "2017-11-21");
-        r.remove();
+        //r.remove();
 
 
         SwingUtilities.invokeLater(new Runnable() {

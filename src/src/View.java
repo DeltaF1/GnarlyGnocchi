@@ -7,18 +7,23 @@ import javax.swing.*;
 public class View {
     private JFrame mainWindow;
 
-   private JPanel mainPanel, dataContainer, controlPanel, detailsPanel, removePanel,
+   private JPanel mainPanel, dataContainer, controlPanel, detailsPanel, switchPanel,
     addPanel, systemPanel;
 
    private JMenuBar dataManagerMenu;
    private JMenu dataManipulator;
    private JMenuItem systemOption, addOption, removeOption;
    private DatabaseManager dataModel;
+    private CardLayout switchConext;
    public static DataContainerPanel dataContainerPanel;
     public View(){
         mainWindow=new JFrame();
         mainWindow.setSize(420,420);
-
+        switchConext = new CardLayout();
+        switchPanel = new JPanel();
+        switchPanel.setLayout(switchConext);
+        addPanel = new JPanel();
+        systemPanel = new JPanel();
         detailsPanel = new DetailsPanel();
 
         dataManagerMenu = new JMenuBar();
@@ -36,8 +41,11 @@ public class View {
         View.dataContainerPanel = (DataContainerPanel) dataContainer;
         controlPanel = new JPanel();
         controlPanel.setLayout(new BorderLayout());
-        controlPanel.add(detailsPanel);
+        controlPanel.add(detailsPanel, BorderLayout.WEST);
+        controlPanel.add(switchPanel, BorderLayout.EAST);
 
+        switchPanel.add(addPanel, "Add");
+        switchPanel.add(systemPanel, "System");
         mainWindow.add(mainPanel);
         mainPanel.add(dataContainer, BorderLayout.WEST);
         mainPanel.add(controlPanel, BorderLayout.EAST);
@@ -59,6 +67,9 @@ public class View {
     }
 
 
+    public void switchPanel(String x){
+       
+    }
 
 
 

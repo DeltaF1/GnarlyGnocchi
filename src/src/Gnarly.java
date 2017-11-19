@@ -28,7 +28,7 @@ public class Gnarly{
         Record r = DatabaseManager.addRecord("Food pellets", 500.0f, 10025, "2017-11-21");
         r.remove();
 
-        View test = new View();
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

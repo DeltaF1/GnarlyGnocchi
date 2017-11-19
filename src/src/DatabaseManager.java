@@ -70,26 +70,17 @@ public class DatabaseManager {
         }
     }
 
-    public static int addRecord(String name, float volume, int price, String date)
-    {
+    public static int addRecord(String name, float volume, int price, String date) {
         String sql = "INSERT INTO item (name, volume, price, date) VALUES";
 
-        try
-        {
+        try {
             stmt.execute(sql);
             ResultSet rs = stmt.executeQuery("SELECT last_insert_rowid();");
             return rs.getInt(0);
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return -1;
         }
-    }
-
-    private static void execute(String sql)
-    {
-
     }
 
 }

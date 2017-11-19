@@ -34,7 +34,7 @@ public class SysPanel extends JPanel {
             TotalCost.setBounds(20,20,10,10);
             this.add(TotalCost);
             TotalCost.setEditable(false);
-
+            //
         }
     }
 

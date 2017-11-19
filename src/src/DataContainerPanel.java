@@ -16,8 +16,6 @@ public class DataContainerPanel  extends JPanel{
        this.setLayout(new BorderLayout());
 
         temp = new DefaultListModel<Record>();
-
-
         data = new JList<Record>(temp);
 
         data.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

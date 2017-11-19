@@ -53,8 +53,6 @@ public class View {
 
 
 
-
-
         mainWindow.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event){
@@ -68,7 +66,11 @@ public class View {
 
 
     public void switchPanel(String x){
-       
+       if(x.equals("System")){
+           switchConext.show(systemPanel, "System");
+       }else{
+           switchConext.show(addPanel, "Add");
+       }
     }
 
 

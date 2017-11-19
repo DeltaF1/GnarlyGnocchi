@@ -38,10 +38,6 @@ public class Gnarly{
 
 
 
-
-
-
-
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(()-> {
                     DatabaseManager.removeExpired();

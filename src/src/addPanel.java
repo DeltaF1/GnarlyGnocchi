@@ -43,6 +43,7 @@ public class addPanel extends JPanel{
 
         JButton addButton = new JButton("Add Item");
         addButton.setBounds(100, 100, 80, 25);
+        addButton.addActionListener(new AddControler(this));
         addPanel.add(addButton);
     }
 

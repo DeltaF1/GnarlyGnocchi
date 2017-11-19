@@ -1,8 +1,9 @@
+import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseManager {
-    private static String url = "jdbc:sqlite:./items.db";
+    private static String url = "jdbc:sqlite:"+Paths.get(".").toAbsolutePath().normalize().toString()+"\\items.db";
     private static Connection conn;
     private static Statement stmt;
     public static void connect()
@@ -13,6 +14,7 @@ public class DatabaseManager {
         }
         catch (SQLException e)
         {
+            System.out.println("Error getting connection:");
             System.out.println(e.getMessage());
         }
 
@@ -62,7 +64,7 @@ public class DatabaseManager {
     {
         try
         {
-            stmt.execute("DELETE FROM item WHERE id = "+id);
+            stmt.execute("DELETE FROM items WHERE id = "+id);
         }
         catch (SQLException e)
         {
@@ -70,16 +72,18 @@ public class DatabaseManager {
         }
     }
 
-    public static int addRecord(String name, float volume, int price, String date) {
-        String sql = "INSERT INTO item (name, volume, price, date) VALUES";
-
+    public static Record addRecord(String name, float volume, int price, String date) {
+        String sql = "INSERT INTO items (name, volume, price, expiry) VALUES ('" +
+        name+"',"+volume+","+price+",date("+date+")"+
+        ")";
         try {
             stmt.execute(sql);
             ResultSet rs = stmt.executeQuery("SELECT last_insert_rowid();");
-            return rs.getInt(0);
+            return new Record(rs.getInt(1), name, volume, price, date);
         } catch (SQLException e) {
+            System.out.println("Error adding record:");
             System.out.println(e.getMessage());
-            return -1;
+            return null;
         }
     }
 

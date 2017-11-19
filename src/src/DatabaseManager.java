@@ -40,9 +40,36 @@ public class DatabaseManager {
 
     }
 
+    private static Record Record(ResultSet rs)
+    {
+        try
+        {
+            return new Record(rs.getInt("id"), rs.getString("name"), rs.getFloat("volume"), rs.getInt("price"), rs.getString("expiry"));
+        }
+        catch (SQLException e)
+        {
+            return null;
+        }
+    }
+
     public static ArrayList<Record> getAllItems()
     {
-        return null;
+        try
+        {
+            ArrayList<Record> records = new ArrayList<Record>();
+            stmt.execute("SELECT * FROM items");
+            ResultSet rs;
+            rs = stmt.getResultSet();
+            while(rs.next())
+            {
+                records.add(Record(rs));
+            }
+            return records;
+        }
+        catch (SQLException e)
+        {
+            return null;
+        }
     }
 
     public static void removeExpired()
@@ -52,12 +79,15 @@ public class DatabaseManager {
 
     public static Record getItem(int id)
     {
-        return null;
-    }
-
-    private static Record Record()
-    {
-        return null;
+        try
+        {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM items WHERE id = " + id);
+            return Record(rs);
+        }
+        catch (SQLException e)
+        {
+            return null;
+        }
     }
 
     public static void remove(int id)

@@ -15,8 +15,8 @@ public class Gnarly{
 
     public static String currentTime()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        return null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        return sdf.format(new Date());
     }
 
     public static void main(String [] args){
@@ -45,6 +45,7 @@ public class Gnarly{
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(()-> {
                     DatabaseManager.removeExpired();
+
                 },0, 1, TimeUnit.HOURS);
     }
 

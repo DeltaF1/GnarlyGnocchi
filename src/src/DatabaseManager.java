@@ -65,7 +65,15 @@ public class DatabaseManager {
     public static void removeExpired()
     {
         //Need to get current date in proper format
-        //stmt.execute("DELETE FROM items WHERE expiry BETWEEN "epoch" AND "current date");
+
+        try
+        {
+            stmt.execute("DELETE FROM items WHERE expiry = date('now')");
+        }
+        catch (SQLException e)
+        {
+
+        }
     }
 
     public static Record getItem(int id)

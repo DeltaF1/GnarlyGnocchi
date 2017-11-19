@@ -8,16 +8,18 @@ import java.util.*;
 public class DataContainerPanel  extends JPanel{
     private JPanel innerPanel;
     private JList<Record> data;
+    private  DefaultListModel<Record> temp;
 
     public DataContainerPanel(){
         super();
 
        this.setLayout(new BorderLayout());
 
-        DefaultListModel<Record> temp = new DefaultListModel<Record>();
-        temp.addElement(new Record("tep",2, 5, "lol"));
+        temp= new DefaultListModel<Record>();
+
 
         data = new JList<Record>(temp);
+
         data.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         data.setSelectedIndex(0);
 
@@ -29,7 +31,7 @@ public class DataContainerPanel  extends JPanel{
 
     public void getData(){
 
-
+        temp.addElement(new Record(1,"test", 2, 1, "LOL"));
 
     }
 

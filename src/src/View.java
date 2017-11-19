@@ -13,11 +13,12 @@ public class View {
    private JMenuBar dataManagerMenu;
    private JMenu dataManipulator;
    private JMenuItem systemOption, addOption, removeOption;
-
+   private DatabaseManager dataModel;
     public View(){
         mainWindow=new JFrame();
         mainWindow.setSize(420,420);
 
+        detailsPanel = new DetailsPanel();
 
         dataManagerMenu = new JMenuBar();
         dataManipulator = new JMenu("Data Manipulation");
@@ -32,6 +33,9 @@ public class View {
         mainPanel.setLayout(new BorderLayout());
         dataContainer = new DataContainerPanel();
         controlPanel = new JPanel();
+        controlPanel.setLayout(new BorderLayout());
+        controlPanel.add(detailsPanel);
+
         mainWindow.add(mainPanel);
         mainPanel.add(dataContainer, BorderLayout.WEST);
         mainPanel.add(controlPanel, BorderLayout.EAST);

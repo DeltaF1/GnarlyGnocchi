@@ -5,5 +5,8 @@ public class MenuControler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
+    String check = actionEvent.getActionCommand();
+
+
     }
 }

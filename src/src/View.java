@@ -18,7 +18,7 @@ public class View {
    public static DataContainerPanel dataContainerPanel;
     public View(){
         mainWindow=new JFrame();
-        mainWindow.setSize(420,420);
+        mainWindow.setSize(600,600);
         switchConext = new CardLayout();
         switchPanel = new JPanel();
         switchPanel.setLayout(switchConext);
@@ -41,16 +41,16 @@ public class View {
         View.dataContainerPanel = (DataContainerPanel) dataContainer;
         controlPanel = new JPanel();
         controlPanel.setLayout(new BorderLayout());
-        controlPanel.add(detailsPanel, BorderLayout.WEST);
-        controlPanel.add(switchPanel, BorderLayout.EAST);
+
 
         switchPanel.add(addPanel, "Add");
         switchPanel.add(systemPanel, "System");
         mainWindow.add(mainPanel);
         mainPanel.add(dataContainer, BorderLayout.WEST);
         mainPanel.add(controlPanel, BorderLayout.EAST);
-        controlPanel.add(dataManagerMenu);
-
+        controlPanel.add(dataManagerMenu, BorderLayout.NORTH);
+        controlPanel.add(detailsPanel, BorderLayout.WEST);
+        controlPanel.add(switchPanel, BorderLayout.EAST);
 
 
         mainWindow.addWindowListener(new WindowAdapter() {

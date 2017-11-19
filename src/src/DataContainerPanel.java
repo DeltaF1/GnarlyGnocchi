@@ -24,15 +24,28 @@ public class DataContainerPanel  extends JPanel{
         JScrollPane listScrollPane = new JScrollPane(data);
         this.add(listScrollPane);
 
+
     }
 
 
     public void getData(){
 
         temp.clear();
+        float totalVolume = 0;
         for (Record r : DatabaseManager.getAllItems())
         {
             temp.addElement(r);
+            totalVolume += r.volume;
+        }
+
+        if (totalVolume / (float)80000 <= 60)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Supplies are too low!");
+        }
+
+        if (totalVolume / (float)80000 >= 95)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Too full!");
         }
 
     }

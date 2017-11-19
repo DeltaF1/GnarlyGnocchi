@@ -17,7 +17,7 @@ public class AddControler implements ActionListener {
             addPanel panel = (addPanel) actionEvent.getSource();
 
             Record r = DatabaseManager.addRecord(panel.nameText.getText(), Float.parseFloat(panel.volumeText.getText()),
-                    Integer.parseInt(panel.priceText.getText()), panel.expiryText.getText());
+                    (int)(Float.parseFloat(panel.priceText.getText())*1.23), panel.expiryText.getText());
 
             View.dataContainerPanel.getData();
 

@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseManager {
@@ -32,7 +29,7 @@ public class DatabaseManager {
             firstTimeSetup();
         }
         */
-        }
+
     }
 
     private static void firstTimeSetup()
@@ -43,7 +40,7 @@ public class DatabaseManager {
 
     public static ArrayList<Record> getAllItems()
     {
-
+        return null;
     }
 
     public static void removeExpired()
@@ -53,20 +50,44 @@ public class DatabaseManager {
 
     public static Record getItem(int id)
     {
-
+        return null;
     }
 
     private static Record Record()
     {
-        //
+        return null;
     }
 
     public static void remove(int id)
     {
-
+        try
+        {
+            stmt.execute("DELETE FROM item WHERE id = "+id);
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static void addRecord(Record r)
+    public static int addRecord(String name, float volume, int price, String date)
+    {
+        String sql = "INSERT INTO item (name, volume, price, date) VALUES";
+
+        try
+        {
+            stmt.execute(sql);
+            ResultSet rs = stmt.executeQuery("SELECT last_insert_rowid();");
+            return rs.getInt(0);
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return -1;
+        }
+    }
+
+    private static void execute(String sql)
     {
 
     }

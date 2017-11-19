@@ -12,5 +12,7 @@ public class View {
         mainWindow.addWindowListener(new WindowAdapter() {
             //public void windowClosing(WindowEvent event);
         });
+
     }
+
 }

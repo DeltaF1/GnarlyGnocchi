@@ -33,8 +33,8 @@ public class View {
         dataContainer = new DataContainerPanel();
         controlPanel = new JPanel();
         mainWindow.add(mainPanel);
-        mainPanel.add(dataContainer, BorderLayout.EAST);
-        mainPanel.add(controlPanel, BorderLayout.WEST);
+        mainPanel.add(dataContainer, BorderLayout.WEST);
+        mainPanel.add(controlPanel, BorderLayout.EAST);
         controlPanel.add(dataManagerMenu);
 
 

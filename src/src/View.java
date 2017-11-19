@@ -14,6 +14,7 @@ public class View {
    private JMenu dataManipulator;
    private JMenuItem systemOption, addOption, removeOption;
    private DatabaseManager dataModel;
+   public static DataContainerPanel dataContainerPanel;
     public View(){
         mainWindow=new JFrame();
         mainWindow.setSize(420,420);
@@ -32,6 +33,7 @@ public class View {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         dataContainer = new DataContainerPanel();
+        View.dataContainerPanel = (DataContainerPanel) dataContainer;
         controlPanel = new JPanel();
         controlPanel.setLayout(new BorderLayout());
         controlPanel.add(detailsPanel);

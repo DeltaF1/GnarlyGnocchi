@@ -19,10 +19,10 @@ public class View {
     public View(){
         mainWindow=new JFrame();
         mainWindow.setSize(600,600);
-        switchConext = new CardLayout();
-        switchPanel = new JPanel();
-        switchPanel.setLayout(switchConext);
-        addPanel = new JPanel();
+
+
+
+        addPanel = new addPanel();
         systemPanel = new JPanel();
         detailsPanel = new DetailsPanel();
 
@@ -43,14 +43,13 @@ public class View {
         controlPanel.setLayout(new BorderLayout());
 
 
-        switchPanel.add(addPanel, "Add");
-        switchPanel.add(systemPanel, "System");
+
+
         mainWindow.add(mainPanel);
         mainPanel.add(dataContainer, BorderLayout.WEST);
         mainPanel.add(controlPanel, BorderLayout.EAST);
         controlPanel.add(dataManagerMenu, BorderLayout.NORTH);
-        controlPanel.add(detailsPanel, BorderLayout.WEST);
-        controlPanel.add(switchPanel, BorderLayout.EAST);
+        controlPanel.add(addPanel, BorderLayout.WEST);
 
 
         mainWindow.addWindowListener(new WindowAdapter() {
@@ -64,14 +63,6 @@ public class View {
 
     }
 
-
-    public void switchPanel(String x){
-       if(x.equals("System")){
-           switchConext.show(systemPanel, "System");
-       }else{
-           switchConext.show(addPanel, "Add");
-       }
-    }
 
 
 

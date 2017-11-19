@@ -1,5 +1,9 @@
 
-
+import java.text.SimpleDateFormat;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
 import javax.swing.*;
 import java.util.Date;
 import java.nio.file.Paths;
@@ -24,6 +28,17 @@ public class Gnarly{
             }
         });
 
+        long yourmilliseconds = System.currentTimeMillis();
+        System.out.println(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultdate = new Date(yourmilliseconds);
+        System.out.println(resultdate);
+
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        executor.scheduleAtFixedRate(()-> {
+                    yourmilliseconds = System.currentTimeMillis();
+                });
+                executor.scheduleAtFixedRate(timerWatchdog, 0, 3, TimeUnit.SECONDS);
     }
 
 

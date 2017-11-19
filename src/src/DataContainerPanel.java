@@ -15,7 +15,7 @@ public class DataContainerPanel  extends JPanel{
 
        this.setLayout(new BorderLayout());
 
-        temp= new DefaultListModel<Record>();
+        temp = new DefaultListModel<Record>();
 
 
         data = new JList<Record>(temp);
@@ -31,7 +31,11 @@ public class DataContainerPanel  extends JPanel{
 
     public void getData(){
 
-        temp.addElement(new Record(1,"test", 2, 1, "LOL"));
+        temp.clear();
+        for (Record r : DatabaseManager.getAllItems())
+        {
+            temp.addElement(r);
+        }
 
     }
 

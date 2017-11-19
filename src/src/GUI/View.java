@@ -12,10 +12,14 @@ public class View {
 
     public View(){
         mainWindow=new JFrame();
-        mainWindow.setSize(420,420);
+        mainWindow.setSize(1024,768);
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         dataContainer = new JPanel();
+
+
+
+
 
 
 

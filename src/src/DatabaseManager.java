@@ -26,19 +26,9 @@ public class DatabaseManager {
         {
             System.out.println(e.getMessage());
         }
-        /*if (!hasTable("items")
-        {
-            firstTimeSetup();
-        }
-        */
 
     }
 
-    private static void firstTimeSetup()
-    {
-        //Create the table here
-
-    }
 
     private static Record Record(ResultSet rs)
     {
@@ -74,7 +64,16 @@ public class DatabaseManager {
 
     public static void removeExpired()
     {
-        //conn.execute
+        //Need to get current date in proper format
+
+        try
+        {
+            stmt.execute("DELETE FROM items WHERE expiry = date('now')");
+        }
+        catch (SQLException e)
+        {
+
+        }
     }
 
     public static Record getItem(int id)

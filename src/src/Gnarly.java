@@ -11,6 +11,14 @@ import java.nio.file.Paths;
 
 public class Gnarly{
 
+    public static long yourmilliseconds;
+
+    public static String currentTime()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        return sdf.format(new Date());
+    }
+
     public static void main(String [] args){
 
 
@@ -20,7 +28,7 @@ public class Gnarly{
         Record r = DatabaseManager.addRecord("Food pellets", 500.0f, 10025, "2017-11-21");
         r.remove();
 
-        View test = new View();
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -28,17 +36,13 @@ public class Gnarly{
             }
         });
 
-        long yourmilliseconds = System.currentTimeMillis();
-        System.out.println(System.currentTimeMillis());
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(yourmilliseconds);
-        System.out.println(resultdate);
+
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(()-> {
-                    yourmilliseconds = System.currentTimeMillis();
-                });
-                executor.scheduleAtFixedRate(timerWatchdog, 0, 3, TimeUnit.SECONDS);
+                    DatabaseManager.removeExpired();
+                    View.dataContainerPanel.getData();
+                },0, 1, TimeUnit.HOURS);
     }
 
 

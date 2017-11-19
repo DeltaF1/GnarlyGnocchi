@@ -13,43 +13,43 @@ public class DetailsPanel extends JPanel {
         this.add(idLabel);
 
         id = new JTextField(20);
-        id.setBounds(20,20,10,10);
+        id.setBounds(10,20,10,10);
         this.add(id);
         id.setEditable(false);
 
 
         JLabel nameLabel = new JLabel("Name");
-        nameLabel.setBounds(30,30,10,10);
+        nameLabel.setBounds(10,30,10,10);
         this.add(nameLabel);
 
         name = new JTextField(20);
-        name.setBounds(40,40,10,10);
+        name.setBounds(10,40,10,10);
         this.add(name);
         name.setEditable(false);
 
 
         JLabel volumeLabel = new JLabel("Volume");
-        this.setBounds(50,50,10,10);
+        this.setBounds(10,50,10,10);
         this.add(volumeLabel);
 
         volume = new JTextField(20);
-        volume.setBounds(60,60,10,10);
+        volume.setBounds(10,60,10,10);
         this.add(volume);
         volume.setEditable(false);
 
 
         JLabel priceLabel = new JLabel("Price");
-        this.setBounds(70,70,10,10);
+        this.setBounds(10,70,10,10);
         this.add(priceLabel);
 
         price = new JTextField(20);
-        price.setBounds(80,80,10,10);
+        price.setBounds(10,80,10,10);
         this.add(price);
         price.setEditable(false);
 
 
         JLabel expireyLabel = new JLabel("Price");
-        expireyLabel.setBounds(90,90,10,10);
+        expireyLabel.setBounds(10,90,10,10);
         this.add(expireyLabel);
 
         expirey = new JTextField(20);

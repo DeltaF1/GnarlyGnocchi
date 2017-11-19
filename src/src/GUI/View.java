@@ -20,9 +20,17 @@ public class View {
 
 
         mainWindow.addWindowListener(new WindowAdapter() {
-            //public void windowClosing(WindowEvent event);
+            @Override
+            public void windowClosing(WindowEvent event){
+                System.exit(0);
+            }
         });
 
     }
+
+
+
+
+
 
 }

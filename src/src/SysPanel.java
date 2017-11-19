@@ -21,17 +21,17 @@ public class SysPanel extends JPanel {
             this.add(AreaInUseLabel);
 
             AreaInUse = new JTextField(20);
-            AreaInUse.setBounds(10,20,10,10);
+            AreaInUse.setBounds(10,40,10,10);
             this.add(AreaInUse);
             AreaInUse.setEditable(false);
 
 
             JLabel TotalCostLabel = new JLabel("Total Cost");
-            TotalCostLabel.setBounds(10,30,10,10);
+            TotalCostLabel.setBounds(10,50,10,10);
             this.add(TotalCostLabel);
 
             TotalCost = new JTextField(20);
-            TotalCost.setBounds(10,20,10,10);
+            TotalCost.setBounds(10,60,10,10);
             this.add(TotalCost);
             TotalCost.setEditable(false);
             //
